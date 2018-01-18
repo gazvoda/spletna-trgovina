@@ -63,14 +63,15 @@ if ($isPost) {
                 // Store Session Data
                 //echo "$user[role]";
                 $_SESSION['user_role']= $user['role'];  // Initializing Session with value of PHP Variable
+                $_SESSION['user_email'] = $user['email'];
                 //var_dump($_SESSION);
                 switch ($_SESSION['user_role']) {
                     case "administrator":
-                        header("Location: prijava-admin.php");
+                        header("Location: certs/prijava-cert.php");
                         exit();
                         break;
                     case "prodajalec":
-                        header("Location: prijava-prodajalec.php");
+                        header("Location: certs/prijava-cert.php");
                         exit();
                         break;
                     case "stranka":
