@@ -48,7 +48,7 @@ class DBSpletna {
         $statement->execute();
     }
 */
-    public static function updatePassword($user_id, $first_name, $password) {
+    public static function updatePassword($user_id, $password) {
         $db = DBInit::getInstance();
 
         $statement = $db->prepare("UPDATE user SET password = :password WHERE user_id =:user_id");
@@ -56,5 +56,52 @@ class DBSpletna {
         $statement->bindParam(":user_id", $user_id, PDO::PARAM_INT);
         $statement->execute();
     }
+    
+    public static function updateFirstName($user_id, $first_name) {
+        $db = DBInit::getInstance();
+
+        $statement = $db->prepare("UPDATE user SET first_name = :first_name WHERE user_id =:user_id");
+        $statement->bindParam(":first_name", $first_name);
+        $statement->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+        $statement->execute();
+    }
+    
+    public static function updateLastName($user_id, $last_name) {
+        $db = DBInit::getInstance();
+
+        $statement = $db->prepare("UPDATE user SET last_name = :last_name WHERE user_id =:user_id");
+        $statement->bindParam(":last_name", $last_name);
+        $statement->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+        $statement->execute();
+    }
+    
+    public static function updateEmail($user_id, $email) {
+        $db = DBInit::getInstance();
+
+        $statement = $db->prepare("UPDATE user SET email = :email WHERE user_id =:user_id");
+        $statement->bindParam(":email", $email);
+        $statement->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+        $statement->execute();
+    }
+    
+    public static function updatePhone($user_id, $phone) {
+        $db = DBInit::getInstance();
+
+        $statement = $db->prepare("UPDATE user SET phone = :phone WHERE user_id =:user_id");
+        $statement->bindParam(":phone", $phone);
+        $statement->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+        $statement->execute();
+    }
+    
+    public static function updateAddress($user_id, $address) {
+        $db = DBInit::getInstance();
+
+        $statement = $db->prepare("UPDATE user SET address = :first_name WHERE user_id =:user_id");
+        $statement->bindParam(":address", $address);
+        $statement->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+        $statement->execute();
+    }
+    
+    
 
 }

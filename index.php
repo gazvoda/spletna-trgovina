@@ -51,7 +51,7 @@ if ($isPost) {
 ?><html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Primer strani za prijavo</title>
+        <title>Prijava</title>
     </head>
     <body>
         <?php
@@ -63,6 +63,7 @@ if ($isPost) {
                 // Store Session Data
                 //echo "$user[role]";
                 $_SESSION['user_role']= $user['role'];  // Initializing Session with value of PHP Variable
+                $_SESSION['user_id'] = $user['user_id'];
                 $_SESSION['user_email'] = $user['email'];
                 //var_dump($_SESSION);
                 switch ($_SESSION['user_role']) {
@@ -88,7 +89,7 @@ if ($isPost) {
             ?><form action="<?= basename(__FILE__) ?>" method="post">
                 Username <input type="text" name="uname" />
                 Password <input type="password" name="password" />
-                <input type="submit" value="Pošlji podatke">
+                <input type="submit" value="Prijava">
             </form>
             <?php
         }
