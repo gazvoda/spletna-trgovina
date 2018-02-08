@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.20, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.21, for Linux (x86_64)
 --
 -- Host: localhost    Database: spletna_trgovina
 -- ------------------------------------------------------
--- Server version	5.7.20-0ubuntu0.16.04.1
+-- Server version	5.7.21-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -77,8 +77,9 @@ CREATE TABLE `user` (
   `password` text NOT NULL,
   `phone` int(11) DEFAULT NULL,
   `address` text,
+  `status` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -87,7 +88,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'administrator','lenart','gazvoda','gazvoda@localhost','$2y$10$tsDZ5CAyGN8saoHsbdfCb.46QWhzt1zclP5HdENUo.IcY27LkYbeu',123,'doma');
+INSERT INTO `user` VALUES (1,'administrator','lenart','gazvoda','gazvoda@localhost','$2y$10$YQoGU11lMlmm/qeJGSjRieb1lsnycOOV/0ZaIyRYSY/I9ZJ.FEjaK',123,'doma',NULL),(3,'prodajalec','joze','novak','novak@localhost','$2y$10$1cDooiaAoyvdInJQ8ho6jOw05259vudbZiDD6PKWorttP76HqTZOS',NULL,NULL,NULL),(4,'prodajalec','miha','pecnik','pecnik@localhost','$2y$10$i0ngI9XYxnu6yZsNyuV5iev92U87tRKR.LHWaefWtTh9D6TIxHp92',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -100,4 +101,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-16 17:45:11
+-- Dump completed on 2018-02-08 21:27:23
