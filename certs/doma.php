@@ -23,18 +23,15 @@ session_start();
         <form action="nastavitve.php" method="get">
             <input type="submit" value="Nastavitve">
         </form>
-        <?php
-        //var_dump($_SESSION);
-            if ($_SESSION['user_role'] == "administrator") :
-                ?><form action="dodaj-prodajalca.php" method="get">
-                    <input type="submit" value="Dodaj prodajalca">
-                </form>
-            <?php elseif ($_SESSION['user_role'] == "prodajalec") :
-                ?><form action="dodaj-stranko.php" method="get">
-                    <input type="submit" value="Dodaj stranko">
-                </form>
-            <?php            endif;
-                ?>
+        <?php if ($_SESSION['user_role'] == "administrator") : ?>
+            <form action="uredi.php" method="get">
+                <input type="submit" value="Uredi prodajalce">
+            </form>
+        <?php elseif ($_SESSION['user_role'] == "prodajalec") : ?>
+            <form action="uredi.php" method="get">
+                <input type="submit" value="Uredi stranke">
+            </form>
+        <?php endif; ?>
         <form action="../odjava.php" method="get">
             <input type="submit" value="Odjava">
         </form>

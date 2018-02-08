@@ -58,7 +58,7 @@ if ($isPost) {
         </form>
         <form action="<?= basename(__FILE__) ?>" method="post">
             <br>
-            e-mail <input type="text" name="email" />
+            E-mail <input type="text" name="email" />
             <input type="submit" value="Spremeni">
         </form>
         <form action="<?= basename(__FILE__) ?>" method="post">
@@ -66,6 +66,7 @@ if ($isPost) {
             Geslo <input type="password" name="password" />
             <input type="submit" value="Spremeni">
         </form>
+        <button onclick="history.go(-1);">Nazaj</button>
         <form action="../odjava.php" method="get">
             <input type="submit" value="Odjava">
         </form>

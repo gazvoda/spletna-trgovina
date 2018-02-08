@@ -13,41 +13,58 @@ class DBSpletna {
     public static function getAll() {
         $db = DBInit::getInstance();
 
-        $statement = $db->prepare("SELECT user_id, role, first_name FROM user");
+        $statement = $db->prepare("SELECT user_id, role, first_name, last_name, email FROM user");
         $statement->execute();
 
         return $statement->fetchAll();
     }
-/*
-    public static function delete($id) {
+    
+    public static function getAllRole($user_role) {
         $db = DBInit::getInstance();
 
-        $statement = $db->prepare("DELETE FROM jokes WHERE id = :id");
-        $statement->bindParam(":id", $id, PDO::PARAM_INT);
+        $statement = $db->prepare("SELECT user_id, role, first_name, last_name, email FROM user WHERE user_role = :user_role");
+        $statement->bindParam(":user_role", $user_role);
+        $statement->execute();
+
+        return $statement->fetchAll();
+    }
+
+    public static function delete($user_id) {
+        $db = DBInit::getInstance();
+
+        $statement = $db->prepare("DELETE FROM user WHERE user_id = :user_id");
+        $statement->bindParam(":user_id", $user_id, PDO::PARAM_INT);
         $statement->execute();
     }
 
-    public static function get($id) {
+    public static function get($user_id) {
         $db = DBInit::getInstance();
 
-        $statement = $db->prepare("SELECT id, joke_text, joke_date FROM jokes 
-            WHERE id =:id");
-        $statement->bindParam(":id", $id, PDO::PARAM_INT);
+        $statement = $db->prepare("SELECT user_id, role, first_name, last_name, email, password, status FROM user 
+            WHERE user_id =:user_id");
+        $statement->bindParam(":user_id", $user_id, PDO::PARAM_INT);
         $statement->execute();
 
         return $statement->fetch();
     }
 
-    public static function insert($joke_date, $joke_text) {
+    public static function insert($role, $first_name, $last_name, $email, $password, $phone, $address, $status) {
         $db = DBInit::getInstance();
 
-        $statement = $db->prepare("INSERT INTO jokes (joke_date, joke_text)
-            VALUES (:joke_date, :joke_text)");
-        $statement->bindParam(":joke_date", $joke_date);
-        $statement->bindParam(":joke_text", $joke_text);
+        $statement = $db->prepare("INSERT INTO user (role, first_name, last_name, email, password, phone, address, status)
+            VALUES (:role, :first_name, :last_name, :email, :password, :phone, :address, :status)");
+        $statement->bindParam(":role", $role);
+        $statement->bindParam(":first_name", $first_name);
+        $statement->bindParam(":last_name", $last_name);
+        $statement->bindParam(":email", $email);
+        $statement->bindParam(":password", $password);
+        $statement->bindParam(":phone", $phone);
+        $statement->bindParam(":address", $address);
+        $statement->bindParam(":status", $status);
+        
         $statement->execute();
     }
-*/
+
     public static function updatePassword($user_id, $password) {
         $db = DBInit::getInstance();
 
@@ -103,5 +120,5 @@ class DBSpletna {
     }
     
     
-
+    
 }
